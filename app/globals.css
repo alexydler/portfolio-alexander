@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+/* Ocultar la barra de scroll visual en dispositivos móviles */
+@media (max-width: 768px) {
+  /* Para Chrome, Safari y Opera */
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Para Firefox, IE y Edge */
+  * {
+    -ms-overflow-style: none;  /* IE y Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+}
