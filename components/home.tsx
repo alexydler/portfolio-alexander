@@ -11,7 +11,7 @@ import Blog from './Home/Blog/Blog';
 import Contact from './Home/Contact/Contact';
 // import Footer from './Home/Footer/Footer'; // Veo que no lo usas en el return, asegúrate si lo necesitas
 import AOS from 'aos';
-import 'aos/dist/aos.css'; 
+//import 'aos/dist/aos.css'; 
 
 const Home = () => {
 

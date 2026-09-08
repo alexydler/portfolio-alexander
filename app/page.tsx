@@ -1,5 +1,4 @@
 import Home from "@/components/home";
-import ParticlesHero from "@/components/Home/Hero/ParticleBackground";
 import React from "react";
 //import ParticlesHero from "./ParticleBackground"; // Importamos tu componente
 
