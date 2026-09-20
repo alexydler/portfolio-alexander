@@ -1,6 +1,7 @@
 const deploymentHost =
   process.env.VERCEL_PROJECT_PRODUCTION_URL ?? process.env.VERCEL_URL;
 
-export const siteUrl = deploymentHost
-  ? `https://${deploymentHost}`
-  : "http://localhost:3000";
+export const siteUrl = (
+  process.env.SITE_URL ??
+  (deploymentHost ? `https://${deploymentHost}` : "http://localhost:3000")
+).replace(/\/$/, "");

@@ -19,13 +19,20 @@ npx eslint .
 npm run build
 ```
 
-## Producción
+## Producción con Docker
 
-El proyecto puede desplegarse directamente en Vercel:
+La imagen utiliza el modo standalone de Next.js y se publica únicamente en la interfaz local del VPS:
 
-1. Importar el repositorio de GitHub.
-2. Mantener el framework detectado como Next.js.
-3. Usar `npm run build` como comando de compilación.
-4. Publicar sin variables de entorno adicionales.
+```bash
+docker compose up -d --build
+```
 
-Vercel proporciona automáticamente la URL base utilizada por los metadatos, `robots.txt` y el sitemap. Al conectar un dominio personalizado como dominio principal del proyecto, esa URL se actualiza sin configuración adicional.
+El servicio queda disponible en `http://127.0.0.1:3001`. Nginx debe actuar como reverse proxy hacia esa dirección; el puerto no queda expuesto públicamente por Docker.
+
+Para generar metadatos, enlaces canónicos y el sitemap con el dominio definitivo:
+
+```bash
+SITE_URL=https://tu-dominio.com docker compose up -d --build
+```
+
+`SITE_URL` no es un secreto. Si no se proporciona, se utiliza `http://localhost:3001`.

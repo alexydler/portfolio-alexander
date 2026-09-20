@@ -1,0 +1,18 @@
+services:
+  portfolio:
+    container_name: portfolio-alexander
+    build:
+      context: .
+      args:
+        SITE_URL: ${SITE_URL:-http://localhost:3001}
+    environment:
+      SITE_URL: ${SITE_URL:-http://localhost:3001}
+    ports:
+      - "127.0.0.1:3001:3000"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://127.0.0.1:3000/"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s

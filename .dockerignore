@@ -1,0 +1,13 @@
+.git
+.github
+.next
+node_modules
+npm-debug.log*
+.env*
+.DS_Store
+coverage
+out
+build
+graphify-out
+README.md
+*.log
