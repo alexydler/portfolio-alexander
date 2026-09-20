@@ -56,10 +56,14 @@ const Nav = ({ openNav }: Props) => {
 
             {/* BOTONES */}
             <div className='flex items-center space-x-4'>
-                <button className='px-8 py-3.5 text-sm cursor-pointer rounded-lg bg-blue-800 hover:bg-blue-900 transition-all duration-300 text-white flex items-center space-x-2'>
+                <a
+                    href="/cv/Alexander_Ydler_CV_2026_foto.pdf"
+                    download="Alexander_Ydler_CV.pdf"
+                    className='px-8 py-3.5 text-sm cursor-pointer rounded-lg bg-blue-800 hover:bg-blue-900 transition-all duration-300 text-white flex items-center space-x-2'
+                >
                     <BiDownload className="w-5 h-5" />
                     <span>Descargar CV</span>
-                </button>
+                </a>
                 
                 {/* Botón menú móvil */}
                 <HiBars3BottomRight 
