@@ -9,6 +9,7 @@ import {
 } from "react-icons/fa6";
 import { SiDjango, SiGooglegemini, SiN8N } from "react-icons/si";
 import ResumeCard from "./ResumeCard";
+import CertificatesCarousel from "./CertificatesCarousel";
 
 const Resume = () => {
   return (
@@ -40,7 +41,8 @@ const Resume = () => {
                 role="Desarrollo de Software & Sistemas de IA"
                 company="Cypress Technologies / Khamex Systems"
                 date="Ene 2026 - Presente"
-                description="Participación en el desarrollo de soluciones de software y algoritmos basados en Inteligencia Artificial y visión artificial para sistemas de detección y procesamiento en tiempo real. Diseño de módulos backend de alto rendimiento utilizando C++ y Python."
+                workMode="Contratado"
+                description="Entrené y etiqueté datos para modelos YOLO aplicados a detección de drones, integré cámaras y circuitos con DigiCore y desarrollé herramientas para comparar modelos y depurar la base de datos."
               />
 
               <ResumeCard
@@ -48,7 +50,8 @@ const Resume = () => {
                 role="Desarrollador Full Stack ERP"
                 company="Sonitus"
                 date="Feb 2025 - Mar 2026"
-                description="Diseñé y desarrollé un ERP modular a medida con frontend responsivo, backend en Python y Django, base de datos PostgreSQL, funcionalidades en tiempo real y despliegue mediante Docker en un servidor VPS Linux."
+                workMode="Freelance"
+                description="Diseñé y desplegué un ERP de 9 módulos para aproximadamente 10 usuarios, sustituyendo papel y Excel por captura móvil, PDFs automáticos e inventario automatizado."
               />
 
               <ResumeCard
@@ -56,7 +59,8 @@ const Resume = () => {
                 role="Desarrollador de Sistema Paperless"
                 company="Anatomía Fitness"
                 date="Jun 2025 - Sept 2025"
-                description="Desarrollé un sistema digital para la gestión y firma de contratos, eliminando el uso de papel en el proceso de inscripción y permitiendo a los usuarios firmar acuerdos directamente desde dispositivos móviles."
+                workMode="Freelance"
+                description="Digitalicé el registro y la firma de contratos para 4 usuarios, reduciendo el proceso de 10 a 2 minutos (80%) y eliminando pérdidas de fichas y errores de lectura manuscrita."
               />
 
               <ResumeCard
@@ -64,7 +68,8 @@ const Resume = () => {
                 role="Desarrollo de Tecnología IA"
                 company="G-Talent.net"
                 date="Jun 2025 - Sept 2025"
-                description="Lideré iniciativas de innovación y automatización, implementando más de cinco flujos con n8n, Zapier y Make para optimizar procesos internos y reducir tareas manuales."
+                workMode="Pasantía"
+                description="Implementé más de cinco automatizaciones, incluidos dos flujos principales, con n8n, Zapier y Make para optimizar procesos de Shopify e Instagram y reducir tareas manuales."
               />
             </div>
           </div>
@@ -104,7 +109,7 @@ const Resume = () => {
             Certificaciones
           </h2>
 
-          <div className="grid grid-cols-1 xl:grid-cols-2 gap-x-10 gap-y-6">
+          <CertificatesCarousel>
 
             <ResumeCard
               Icon={FaDatabase}
@@ -378,7 +383,7 @@ const Resume = () => {
               description="Programación práctica con Python aplicada progresivamente al reconocimiento facial."
             />
 
-          </div>
+          </CertificatesCarousel>
         </div>
 
       </div>

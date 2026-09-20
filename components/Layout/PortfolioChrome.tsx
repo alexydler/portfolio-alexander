@@ -6,9 +6,9 @@ import ResponsiveNav from "@/components/Home/Navbar/ResponsiveNav";
 import ScrollToTop from "@/components/Helper/ScrolltoTop";
 
 export default function PortfolioChrome({ children }: { children: React.ReactNode }) {
-  const isProjectManagerDemo = usePathname().startsWith("/demos/project-manager");
+  const isFullscreenDemo = usePathname().startsWith("/demos/");
 
-  if (isProjectManagerDemo) return children;
+  if (isFullscreenDemo) return children;
 
   return (
     <>

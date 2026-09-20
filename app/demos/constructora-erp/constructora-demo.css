@@ -1,0 +1,9 @@
+.constructora-demo {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #172033;
+  background: #f8fafc;
+}
+.constructora-demo * { box-sizing: border-box; }
+.constructora-demo ::-webkit-scrollbar { width: 8px; height: 8px; }
+.constructora-demo ::-webkit-scrollbar-thumb { background: #b6c3cf; border-radius: 999px; }
+.constructora-demo input, .constructora-demo select, .constructora-demo textarea, .constructora-demo button { font: inherit; }

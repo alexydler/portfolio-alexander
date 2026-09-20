@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import RouteTransitionLink from "@/components/Loading/RouteTransitionLink";
 import {
   AlertCircle, BarChart3, CheckCircle2, ChevronLeft, ChevronRight,
   CircleDollarSign, FolderKanban, LayoutDashboard, LogOut, Menu, MessageSquare,
@@ -126,10 +127,11 @@ function ProjectManagerDemo() {
       <Sidebar open={sidebarOpen} view={view} onNavigate={navigate} onClose={() => setSidebarOpen(false)} onExit={() => setEntered(false)} />
 
       <div className="flex min-w-0 flex-1 flex-col">
-        <header className="flex h-16 shrink-0 items-center justify-between border-b border-white/5 bg-[#151821] px-4 sm:px-6">
+        <header className="flex min-h-16 shrink-0 items-center justify-between gap-3 border-b border-white/5 bg-[#151821] px-4 py-2 sm:px-6">
           <div className="flex items-center gap-3">
             <button className="rounded-xl p-2 text-slate-400 hover:bg-white/5 lg:hidden" onClick={() => setSidebarOpen(true)} aria-label="Abrir menú"><Menu size={22} /></button>
-            <div><p className="text-sm font-bold">Project Manager</p><p className="text-[10px] uppercase tracking-[0.18em] text-slate-500">Workspace demo</p></div>
+            <PortfolioBackLink />
+            <div className="hidden sm:block"><p className="text-sm font-bold">Project Manager</p><p className="text-[10px] uppercase tracking-[0.18em] text-slate-500">Workspace demo</p></div>
           </div>
           <div className="flex items-center gap-3"><div className="hidden text-right sm:block"><p className="text-xs font-bold">Sofía Torres</p><p className="text-[10px] text-slate-500">Administradora</p></div><Avatar name="Sofía Torres" /></div>
         </header>
@@ -164,7 +166,11 @@ function ProjectManagerDemo() {
 }
 
 function DemoLogin({ onEnter }: { onEnter: () => void }) {
-  return <main className="fixed inset-0 z-[200000] grid place-items-center overflow-hidden bg-[#0B0E14] p-5 text-white"><div className="absolute h-80 w-80 rounded-full bg-blue-600/15 blur-3xl" /><section className="relative w-full max-w-md rounded-[2.5rem] border border-white/10 bg-[#151821] p-8 text-center shadow-2xl sm:p-12"><div className="mx-auto mb-7 grid h-16 w-16 place-items-center rounded-2xl bg-blue-600 shadow-lg shadow-blue-600/20"><FolderKanban size={30} /></div><p className="mb-3 text-[10px] font-black uppercase tracking-[0.28em] text-blue-400">Alexander Ydler</p><h1 className="text-3xl font-black tracking-tight sm:text-4xl">Project Manager Demo</h1><p className="mx-auto mt-4 max-w-xs text-sm leading-6 text-slate-400">Explora proyectos, tareas, presupuestos y analítica con información completamente ficticia.</p><button onClick={onEnter} className="mt-9 w-full rounded-2xl bg-blue-600 px-6 py-4 text-sm font-black transition hover:bg-blue-500 active:scale-[0.98]">Entrar a la demo</button><p className="mt-5 text-[11px] text-slate-500">No requiere cuenta. Nada se guarda.</p></section></main>;
+  return <main className="fixed inset-0 z-[200000] grid place-items-center overflow-hidden bg-[#0B0E14] p-5 text-white"><div className="absolute left-4 top-4 z-10 sm:left-6 sm:top-6"><PortfolioBackLink /></div><div className="absolute h-80 w-80 rounded-full bg-blue-600/15 blur-3xl" /><section className="relative w-full max-w-md rounded-[2.5rem] border border-white/10 bg-[#151821] p-8 text-center shadow-2xl sm:p-12"><div className="mx-auto mb-7 grid h-16 w-16 place-items-center rounded-2xl bg-blue-600 shadow-lg shadow-blue-600/20"><FolderKanban size={30} /></div><p className="mb-3 text-[10px] font-black uppercase tracking-[0.28em] text-blue-400">Alexander Ydler</p><h1 className="text-3xl font-black tracking-tight sm:text-4xl">Project Manager Demo</h1><p className="mx-auto mt-4 max-w-xs text-sm leading-6 text-slate-400">Explora proyectos, tareas, presupuestos y analítica con información completamente ficticia.</p><button onClick={onEnter} className="mt-9 w-full rounded-2xl bg-blue-600 px-6 py-4 text-sm font-black transition hover:bg-blue-500 active:scale-[0.98]">Entrar a la demo</button><p className="mt-5 text-[11px] text-slate-500">No requiere cuenta. Nada se guarda.</p></section></main>;
+}
+
+function PortfolioBackLink() {
+  return <RouteTransitionLink href="/#works" className="inline-flex shrink-0 items-center rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-[11px] font-bold text-slate-300 backdrop-blur transition hover:border-cyan-400/40 hover:bg-blue-500/10 hover:text-cyan-300 sm:text-xs">← Volver al portafolio</RouteTransitionLink>;
 }
 
 function Sidebar({ open, view, onNavigate, onClose, onExit }: { open: boolean; view: View; onNavigate: (view: View) => void; onClose: () => void; onExit: () => void }) {

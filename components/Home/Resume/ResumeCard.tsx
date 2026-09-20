@@ -13,10 +13,12 @@ type Props = {
   url?: string;
   company?: string;
   companyColor?: string;
+  workMode?: string;
 
   // Certificados locales
   certificateImage?: string;
   certificatePdf?: string;
+  compact?: boolean;
 };
 
 const ResumeCard = ({
@@ -27,8 +29,10 @@ const ResumeCard = ({
   url,
   company,
   companyColor = "text-cyan-300",
+  workMode,
   certificateImage,
   certificatePdf,
+  compact = false,
 }: Props) => {
   const [showCertificate, setShowCertificate] = useState(false);
 
@@ -41,10 +45,10 @@ const ResumeCard = ({
   const cardContent = (
     <div
       className={`
-        flex items-start space-x-6
+        ${compact ? "h-full min-h-72 flex-col items-start gap-4" : "flex items-start space-x-6"}
         bg-blue-950/20
         transition-all duration-300
-        p-4 sm:p-8
+        ${compact ? "p-5 sm:p-6" : "p-4 sm:p-8"}
         rounded-md
         border border-transparent
         ${
@@ -58,7 +62,7 @@ const ResumeCard = ({
         <Icon className="sm:w-8 sm:h-8 w-6 h-6 text-white" />
       </div>
 
-      <div className="flex-1">
+      <div className={compact ? "flex flex-1 flex-col" : "flex-1"}>
         {date && (
           <h1 className="mb-2 sm:px-6 sm:py-1.5 px-4 py-1 rounded-full bg-gray-200 text-gray-600 w-fit sm:text-lg text-sm font-bold">
             {date}
@@ -69,14 +73,22 @@ const ResumeCard = ({
           {role}
         </h1>
 
-        {company && (
-          <h2 className={`${companyColor} text-lg font-medium mt-1`}>
-            {company}
-          </h2>
+        {(company || workMode) && (
+          <div className="mt-1 flex flex-wrap items-center gap-2">
+            {company && (
+              <h2 className={`${companyColor} text-lg font-medium`}>
+                {company}
+              </h2>
+            )}
+            {workMode && (
+              <span className="rounded-full border border-cyan-300/25 bg-cyan-300/10 px-2.5 py-0.5 text-xs font-semibold text-cyan-200">
+                {workMode}
+              </span>
+            )}
+          </div>
         )}
-
         {description && (
-          <p className="text-gray-300 text-sm sm:text-base pt-3 leading-relaxed">
+          <p className={`text-gray-300 pt-3 leading-relaxed ${compact ? "text-sm" : "text-sm sm:text-base"}`}>
             {description}
           </p>
         )}
@@ -92,7 +104,7 @@ const ResumeCard = ({
 
   return (
     <>
-      <div className="mb-6">
+      <div className={compact ? "h-full" : "mb-6"}>
         {/* 1. CREDENCIAL EXTERNA */}
         {url ? (
           <a

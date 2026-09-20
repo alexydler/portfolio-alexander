@@ -6,8 +6,8 @@ import Services from './Home/Services/Services';
 import Resume from './Home/Resume/Resume';
 import Projects from './Home/Projects/Projects';
 import Skills from './Home/Skills/Skills';
-import ClienteReview from './Home/ClientReview/ClienteReview';
-import Blog from './Home/Blog/Blog';
+//import ClienteReview from './Home/ClientReview/ClienteReview';
+//import Blog from './Home/Blog/Blog';
 import Contact from './Home/Contact/Contact';
 // import Footer from './Home/Footer/Footer'; // Veo que no lo usas en el return, asegúrate si lo necesitas
 import AOS from 'aos';
@@ -36,8 +36,7 @@ const Home = () => {
       <Resume/>
       <Projects/>
       <Skills />
-      <ClienteReview/>
-      <Blog/>
+      
       <Contact />
       {/* <Footer /> Si tienes el footer importado, deberías ponerlo aquí */}
     </div>
